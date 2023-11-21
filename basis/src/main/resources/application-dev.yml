@@ -1,0 +1,32 @@
+server:
+  port: 9202
+
+spring:
+  application:
+    name: life
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://172.30.1.49:3306/life?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: gibson
+    password: '##Liverpool##86'
+    hikari:
+      auto-commit: false
+      connection-test-query: SELECT 1
+      minimum-idle: 10
+      maximum-pool-size: 50
+      pool-name: life_demo
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    show-sql: true
+  data:
+    redis:
+      host: 172.30.1.49
+      port: 6379
+#      username: gibson
+      password: '##Liverpool##86'
+      lettuce:
+        pool:
+          max-active: 8
+eureka:
+  client:
+    enabled: false
